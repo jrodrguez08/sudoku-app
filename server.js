@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const router = require('../sudoku/server/routes/routes');
+const router = require('./server/routes/routes');
 const path = require('path');
 const bodyParser = require('body-parser');
 const passport = require('passport');
