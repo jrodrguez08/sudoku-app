@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from '../login/login.component';
 import { FourOFourComponent } from '../fourOfour/fourOfour.component';
+import {RegisterComponent} from '../register/register.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '404', component: FourOFourComponent },
   { path: '**', redirectTo: '404' }
 ];
@@ -19,5 +21,6 @@ export class AppRoutingModule { }
 
 export const routableComponents = [
   LoginComponent,
+  RegisterComponent,
   FourOFourComponent
 ];

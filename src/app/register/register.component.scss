@@ -1,0 +1,24 @@
+.register {
+
+  @extend %fullHeight;
+  @extend %centerInFullPage;
+
+  &_container {
+
+    width: 380px;
+
+    &_input {
+
+      @extend %fullWidth;
+
+      &-error {
+
+        color: $error
+
+      }
+
+    }
+
+  }
+
+}
