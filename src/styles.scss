@@ -2,7 +2,14 @@
 @import 'styles-variables';
 
 @import 'app/login/login.component';
+@import 'app/fourOfour/fourOfour.component';
 
 body {
   margin: 0;
+  font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+a {
+  color: $primaryColor;
+  text-decoration: none;
 }

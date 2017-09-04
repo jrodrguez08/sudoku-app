@@ -1,0 +1,43 @@
+.fourOfour {
+
+  background-color: $primaryColor;
+  @extend %fullHeight;
+  @extend %centerInFullPage;
+  text-align: center;
+
+  &_container {
+
+    width: 500px;
+
+    &_heading {
+
+      font-size: 62px;
+      color: $white;
+      margin: 0;
+
+    }
+
+    &_subheading {
+
+      font-size: 52px;
+      color: $white;
+      margin: 0;
+
+    }
+
+    &_text {
+
+      text-align: center;
+
+      &-link {
+
+        color: $white;
+        font-size: 30px;
+
+      }
+
+    }
+
+  }
+
+}

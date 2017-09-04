@@ -4,12 +4,22 @@ mongoose.Promise = global.Promise;
 
 const userSchema = new Schema({
   name: {
-    type: String,
-    required: true
+    type: String
   },
   email: {
     type: String,
     required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  nickname: {
+    type: String
+  },
+  gamesPlayed: {
+    type: Number,
+    default: 0
   }
 });
 
