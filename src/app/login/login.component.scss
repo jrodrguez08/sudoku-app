@@ -1,0 +1,18 @@
+.login {
+
+  @extend %centerInFullPage;
+  @extend %fullHeight;
+
+  &_container {
+
+    width: 380px;
+
+    &_input {
+
+      @extend %fullWidth;
+
+    }
+
+  }
+
+}

@@ -1,0 +1,22 @@
+//utility classes
+%centerInFullPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%fullHeight {
+  height: 100vh;
+}
+
+%fullWidth {
+  width: 100%;
+}
+
+//color variables
+$primaryColor: #3f51b5;
+$white: #ffffff;
+$black: #000000;
+
+//global classes
+
