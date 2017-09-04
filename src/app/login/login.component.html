@@ -2,15 +2,17 @@
   <md-card class="login_container">
     <md-card-title>Sudoku App</md-card-title>
     <md-card-content>
-      <form>
+      <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">
         <md-form-field class="login_container_input">
-          <input mdInput placeholder="Email">
+          <input mdInput placeholder="Email" name="email" [formControl]="loginForm.controls['email']">
+          <md-hint *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched" class="login_container_input-error">Email is required</md-hint>
         </md-form-field>
         <md-form-field class="login_container_input">
-          <input mdInput placeholder="Password">
+          <input mdInput placeholder="Password" name="password" type="password" [formControl]="loginForm.controls['password']">
+          <md-hint *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched" class="login_container_input-error">Email is required</md-hint>
         </md-form-field>
         <md-card-actions>
-          <button md-button color="primary" class="md-raised md-primary">Login</button>
+          <button md-button type="submit" color="primary" [disabled]="!loginForm.valid" class="md-raised md-primary">Login</button>
         </md-card-actions>
         <p class="login_container_register">
           <a [routerLink]="['/register']">Not a member yet? Register</a>

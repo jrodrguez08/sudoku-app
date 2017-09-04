@@ -11,6 +11,12 @@
 
       @extend %fullWidth;
 
+      &-error {
+
+        color: $error
+
+      }
+
     }
 
     &_register {
