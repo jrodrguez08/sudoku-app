@@ -2,7 +2,7 @@ let mongoose = require('mongoose');
 let connection = mongoose.connection;
 const uri = 'mongodb://localhost:27017/sudoku';
 
-module.exports.init = (cb) => {
+module.exports.init = () => {
 
   let connect = () => {
     mongoose.connect(uri, {
@@ -34,7 +34,6 @@ module.exports.init = (cb) => {
 
   connection.on('connected', () => {
     global.log('Mongoose: Connection established to MongoDB.');
-    cb();
   });
 
   connection.on('reconnected', () => {

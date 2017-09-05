@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const router = require('./server/routes/routes');
+const router = require('./server/routes/index');
 const path = require('path');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -20,7 +20,7 @@ app.use(bodyParser.json({
 }));
 
 app.use(passport.initialize());
-require('./server/services/authService').init(passport, passportJWT);
+require('./server/services/auth').init(passport, passportJWT);
 
 app.use(express.static(path.join(__dirname, 'dist')));
 

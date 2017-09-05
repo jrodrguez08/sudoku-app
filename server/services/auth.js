@@ -6,8 +6,8 @@ module.exports.init = (passport, JWT) => {
   const ExtractJwt = JWT.ExtractJwt;
   const JwtStrategy = JWT.Strategy;
 
-  jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeader();
-  jwtOptions.secretOrKey = 'DiegoTCU';
+  jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+  jwtOptions.secretOrKey = 'functionalSudoku';
 
   const strategy = new JwtStrategy(jwtOptions, (jwt_payload, next) => {
     //user jwt_payload.id to find user data
