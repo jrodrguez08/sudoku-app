@@ -10,7 +10,7 @@ export class LoginComponent {
 
   loginForm: FormGroup;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder) {
 
     this.loginForm = formBuilder.group({
       email: [null, Validators.compose([Validators.required, Validators.email])],

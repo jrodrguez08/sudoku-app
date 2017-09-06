@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { matchOtherValidator } from '../utils/matchOther.validator';
+import { UserService } from '../services/user.service';
 
 @Component({
   templateUrl: 'register.component.html'
@@ -11,7 +12,7 @@ export class RegisterComponent {
 
   registerForm: FormGroup;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private usersService: UserService) {
 
     this.registerForm = formBuilder.group({
       name: [null, Validators.required],
@@ -23,11 +24,11 @@ export class RegisterComponent {
 
   }
 
-  submitForm(value: any): void {
+  submitForm(value: object): void {
 
-    console.log('Form Data: ');
     console.log(value);
 
+    this.usersService.postUser(value);
   }
 
 }
