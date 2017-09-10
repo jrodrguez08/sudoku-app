@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
-import { matchOtherValidator } from '../utils/matchOther.validator';
-import { UserService } from '../services/user.service';
+import {matchOtherValidator} from '../utils/matchOther.validator';
+import {UserService} from '../services/user.service';
 
 @Component({
   templateUrl: 'register.component.html'
@@ -12,7 +13,7 @@ export class RegisterComponent {
 
   registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private usersService: UserService) {
+  constructor(private formBuilder: FormBuilder, private usersService: UserService, private router: Router) {
 
     this.registerForm = formBuilder.group({
       name: [null, Validators.required],
@@ -24,11 +25,24 @@ export class RegisterComponent {
 
   }
 
-  submitForm(value: object): void {
+  submitForm(value: object) {
 
-    console.log(value);
+    const user = {
+      name: value['name'],
+      email: value['email'],
+      password: value['password'],
+      nickname: value['nickname']
+    };
 
-    this.usersService.postUser(value);
+    this.usersService.postUser(user).then(res => {
+
+      if (res['status'] === 200) {
+
+        this.router.navigate(['login']);
+      }
+
+    });
+
   }
 
 }

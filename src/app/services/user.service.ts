@@ -28,9 +28,8 @@ export class UserService {
 
   postUser(user: object) {
     return this.http
-      .post(this.usersUrl, JSON.stringify(user))
+      .post(this.usersUrl, user)
       .toPromise()
-      .then(res => console.log(res))
       .catch(this.handleError);
   }
 

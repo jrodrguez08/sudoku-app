@@ -5,25 +5,38 @@
       <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm.value)">
         <md-form-field class="register_container_input">
           <input mdInput placeholder="Name" name="name" [formControl]="registerForm.controls['name']">
-          <md-hint *ngIf="!registerForm.controls['name'].valid && registerForm.controls['name'].touched" class="register_container_input-error">Name is required</md-hint>
+          <md-hint *ngIf="!registerForm.controls['name'].valid && registerForm.controls['name'].touched"
+                   class="register_container_input-error">Name is required
+          </md-hint>
         </md-form-field>
         <md-form-field class="register_container_input">
           <input mdInput placeholder="Email" name="email" [formControl]="registerForm.controls['email']">
-          <md-hint *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched" class="register_container_input-error">Email is required</md-hint>
+          <md-hint *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched"
+                   class="register_container_input-error">Email is required
+          </md-hint>
         </md-form-field>
         <md-form-field class="register_container_input">
-          <input mdInput placeholder="Password" name="password" type="password" [formControl]="registerForm.controls['password']">
-          <md-hint *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched" class="register_container_input-error">Password is required</md-hint>
+          <input mdInput placeholder="Password" name="password" type="password"
+                 [formControl]="registerForm.controls['password']">
+          <md-hint *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched"
+                   class="register_container_input-error">Password is required
+          </md-hint>
         </md-form-field>
         <md-form-field class="register_container_input">
-          <input mdInput placeholder="Confirm Password" name="confirmPassword" type="password" [formControl]="registerForm.controls['confirmPassword']">
-          <md-hint *ngIf="registerForm.controls['confirmPassword'].errors && registerForm.controls['confirmPassword'].touched" class="register_container_input-error">Passwords do not match</md-hint>
+          <input mdInput placeholder="Confirm Password" name="confirmPassword" type="password"
+                 [formControl]="registerForm.controls['confirmPassword']">
+          <md-hint
+            *ngIf="registerForm.controls['confirmPassword'].errors && registerForm.controls['confirmPassword'].touched"
+            class="register_container_input-error">Passwords do not match
+          </md-hint>
         </md-form-field>
         <md-form-field class="register_container_input">
           <input mdInput placeholder="Nickname" name="nickname" [formControl]="registerForm.controls['nickname']">
         </md-form-field>
         <md-card-actions>
-          <button md-button type="submit" color="primary" class="md-raised md-primary" [disabled]="!registerForm.valid">Register</button>
+          <button md-button type="submit" color="primary" class="md-raised md-primary" [disabled]="!registerForm.valid">
+            Register
+          </button>
         </md-card-actions>
       </form>
     </md-card-content>

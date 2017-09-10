@@ -16,7 +16,8 @@ const userSchema = new Schema({
     required: true
   },
   nickname: {
-    type: String
+    type: String,
+    default: ''
   },
   gamesPlayed: {
     type: Number,
