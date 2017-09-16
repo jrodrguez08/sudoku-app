@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 import {AuthService} from '../services/auth.service';
 
@@ -6,16 +7,25 @@ import {AuthService} from '../services/auth.service';
   templateUrl: 'home.component.html'
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
-  constructor(private authService: AuthService) {
+  user: object;
+
+  constructor(private authService: AuthService, private router: Router) {
 
   }
 
+  ngOnInit() {
+    this.getLoggedUser();
+  }
+
+  getLoggedUser() {
+    this.user = this.authService.getLoggedUser();
+  }
+
   logout() {
-    console.log('Deslogeo antes', sessionStorage.getItem('token'));
     this.authService.logout();
-    console.log('Deslogeo despues', sessionStorage.getItem('token'));
+    this.router.navigate(['login']);
   }
 
 }

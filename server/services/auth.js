@@ -41,7 +41,8 @@ module.exports.login = params => {
         resolve({
           message: "ok",
           data: {
-            token
+            token,
+            user
           }
         });
       } else {

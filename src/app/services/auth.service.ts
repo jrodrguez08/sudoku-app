@@ -23,13 +23,17 @@ export class AuthService {
     sessionStorage.removeItem('token');
   }
 
+  getLoggedUser() {
+    return JSON.parse(sessionStorage.getItem('user'));
+  }
+
   private getData(data: Response) {
     const token = data.json();
     if (token.data.data.token) {
       sessionStorage.setItem('token', token.data.data.token);
+      sessionStorage.setItem('user', JSON.stringify(token.data.data.user));
       return true;
     }
-    console.log('FALSE');
     return false;
   }
 

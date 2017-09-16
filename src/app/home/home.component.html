@@ -1,4 +1,12 @@
-<article>
-  <h1>THIS IS HOME (PROTECTED)</h1>
-  <span (click)="logout()">LOGOUT</span>
-</article>
+<section class="home">
+  <md-toolbar class="home_nav" color="primary">
+    <button md-icon-button [mdMenuTriggerFor]="home">
+      <span class="fa fa-bars"></span>
+    </button>
+    <md-menu #home="mdMenu">
+      <button md-menu-item>Profile</button>
+      <button md-menu-item (click)="logout()">Logout</button>
+    </md-menu>
+    <span class="home_nav_user">{{user.name}}</span>
+  </md-toolbar>
+</section>

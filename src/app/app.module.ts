@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {MdCardModule, MdButtonModule, MdInputModule, MdProgressSpinnerModule} from '@angular/material';
+import {MdCardModule, MdButtonModule, MdInputModule, MdProgressSpinnerModule, MdToolbarModule, MdMenuModule} from '@angular/material';
 
 import {AppRoutingModule, routableComponents} from './app-routing/app-routing.module';
 import {UserService} from './services/user.service';
@@ -30,7 +30,10 @@ import {AppComponent} from './app.component';
     BrowserAnimationsModule,
     MdCardModule,
     MdButtonModule,
-    MdInputModule
+    MdInputModule,
+    MdProgressSpinnerModule,
+    MdToolbarModule,
+    MdMenuModule
   ],
   providers: [UserService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
