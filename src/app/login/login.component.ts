@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { AuthService } from '../services/auth.service';
 
 @Component({
   templateUrl: 'login.component.html'
@@ -9,8 +12,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
 
   loginForm: FormGroup;
+  error: string;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
 
     this.loginForm = formBuilder.group({
       email: [null, Validators.compose([Validators.required, Validators.email])],
@@ -19,11 +23,21 @@ export class LoginComponent {
 
   }
 
-  submitForm(value: any): void {
+  submitForm(value: object): void {
 
-    console.log('Form Data: ');
-    console.log(value);
+    const user = {
+      email: value['email'],
+      password: value['password']
+    };
 
+    this.authService.login(user)
+      .then(res => {
+        if (res === true) {
+          this.router.navigate(['home']);
+        } else {
+          this.error = 'Wrong credentials';
+        }
+      });
   }
 
 }
