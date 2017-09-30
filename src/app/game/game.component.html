@@ -1,0 +1,9 @@
+<section class="game">
+    <h3 class="game_title">SUDOKU</h3>
+
+  <article class="game_container">
+    <app-tile [value]="tile.value" *ngFor="let tile of tiles; let i = index" (click)="changeValue(i)"></app-tile>
+  </article>
+
+
+</section>

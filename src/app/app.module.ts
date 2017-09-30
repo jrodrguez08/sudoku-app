@@ -14,12 +14,14 @@ import {AuthGuard} from './guards/auth.guard';
 import {SpinnerComponent} from './spinner/spinner.component';
 
 import {AppComponent} from './app.component';
+import {TileComponent} from './tile/tile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routableComponents,
-    SpinnerComponent
+    SpinnerComponent,
+    TileComponent
   ],
   imports: [
     BrowserModule,
