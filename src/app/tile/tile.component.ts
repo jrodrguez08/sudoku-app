@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-tile',
@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
 
 export class TileComponent {
 
-  value = 3;
+  @Input() value = '';
 
   constructor() {
   }
